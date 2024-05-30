@@ -10,26 +10,26 @@ import jakarta.persistence.Table;
 
 public class UserInfo {
     @Id
-    @Column(name = "password") private String city;
+    @Column(name = "password") private String password;
 
-    @Column(name = "email") private String country;
+    @Column(name = "email") private String email;
 
     @Column(name = "name") private String name;
 
-    public String getCity() {
-        return city;
+    public String getPassword() {
+        return password;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getCountry() {
-        return country;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getName() {
@@ -39,4 +39,5 @@ public class UserInfo {
     public void setName(String name) {
         this.name = name;
     }
+
 }

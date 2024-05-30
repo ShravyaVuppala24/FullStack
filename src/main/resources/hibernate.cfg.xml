@@ -6,7 +6,7 @@
     <session-factory>
 
         <!-- Set URL -->
-        <property name = "hibernate.connection.url">jdbc:mysql://localhost:3306/db1</property>
+        <property name = "hibernate.connection.url">jdbc:mysql://localhost:3306/db2</property>
 
         <!-- Set UserName -->
         <property name = "hibernate.connection.username">root</property>
@@ -15,7 +15,8 @@
         <property name = "hibernate.connection.password">root</property>
 
         <!-- Set Driver Name -->
-        <property name = "hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+
 
         <property name = "hibernate.show_sql">true</property>
 
@@ -27,6 +28,6 @@
         <property name="hibernate.current_session_context_class">thread</property>
 
         <!-- Entity mapping -->
-        <mapping class="org.example.Addresstable" />
+        <mapping class="org.example.UserInfo" />
     </session-factory>
 </hibernate-configuration>
