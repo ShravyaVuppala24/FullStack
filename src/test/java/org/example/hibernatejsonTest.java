@@ -9,7 +9,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import static org.junit.jupiter.api.Assertions.*;
 public class hibernatejsonTest {
-
     private static SessionFactory sessionFactory;
 
     @BeforeAll
@@ -37,12 +36,16 @@ public class hibernatejsonTest {
 
         // Assert
         assertNotNull(result);
-        System.out.println("Test result: " + result);
-    }
 
+        String result1 = hibernateJson.details("tom@gmail.com");
+
+        // Assert
+        assertTrue(result1.length()!=1);
+
+    }
     @Test
     public void testRegisterUser() {
-        {
+
             UserInfo userInfo = new UserInfo();
             userInfo.setName("test3");
             userInfo.setEmail("test3");
@@ -50,12 +53,58 @@ public class hibernatejsonTest {
 
             String result = hibernatejson.registerUser(userInfo);
             assertEquals("success", result);
-        }
+
+
+            UserInfo userInfo1 = new UserInfo();
+            userInfo1.setName("");
+            userInfo1.setEmail("");
+            userInfo1.setPassword("");
+
+            String result1 = hibernatejson.registerUser(userInfo1);
+            assertEquals("fields can't be empty", result1);
+
     }
     @Test
     public void testUserExists() {
         boolean exists = hibernatejson.userExists("sh@gmail.com");
         assertTrue(exists);
+
+    }
+    @Test
+    public void testupdateUser() {
+
+        UserInfo userInfo = new UserInfo();
+        userInfo.setName("Bhavya");
+        userInfo.setEmail("bh@gmail.com");
+        userInfo.setPassword("Bhavya");
+
+        String result = hibernatejson.updateUser(userInfo);
+        assertEquals("User Details Updated", result);
+
+        UserInfo userInfo1 = new UserInfo();
+        userInfo1.setName("Funny");
+        userInfo1.setEmail("b@gmail.com");
+        userInfo1.setPassword("funny");
+        String result1 = hibernatejson.updateUser(userInfo1);
+        assertEquals("Could not update User Details", result1);
+
+        UserInfo userInfo2 = new UserInfo();
+        userInfo1.setName("");
+        userInfo1.setEmail("");
+        userInfo1.setPassword("");
+        String result2 = hibernatejson.updateUser(userInfo1);
+        assertEquals("Could not update User Details", result2);
+    }
+    @Test
+    public void testdeleteUser() {
+
+        hibernatejson hibernateJson = new hibernatejson();
+
+        String result = hibernateJson.deleteUser("test3");
+        assertEquals("User Deleted",result);
+
+        String result1 = hibernateJson.deleteUser("test3");
+        assertEquals("Could not Delete user",result1);
 
     }
 
