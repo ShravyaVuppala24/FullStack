@@ -29,5 +29,6 @@
 
         <!-- Entity mapping -->
         <mapping class="org.example.UserInfo" />
+        <mapping class = "rollback.balance"/>
     </session-factory>
 </hibernate-configuration>

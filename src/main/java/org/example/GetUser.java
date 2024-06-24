@@ -1,5 +1,7 @@
 package org.example;
 
+import io.swagger.annotations.*;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -10,16 +12,22 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*") // Allow requests from all origins with all headers
 public class GetUser {
+
+
+
     @GetMapping({"/GetEmail"})
     public String Userdetails(@RequestParam String email) {
 
         return hibernatejson.details(email);
+//       return "[{\"password\":\"Shravya\",\"email\":\"sh@gmail.com\",\"name\":\"Shravya\"}]";
     }
 
     @PostMapping({"/Register"})
     public String registerUser(@RequestBody UserInfo userInfo) {
         String s = hibernatejson.registerUser(userInfo);
+//          String s = "success";
         return "{\"status\":\"" + s + "\"}";
+
 
     }
 

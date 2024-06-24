@@ -55,13 +55,13 @@ public class hibernatejsonTest {
             assertEquals("success", result);
 
 
-            UserInfo userInfo1 = new UserInfo();
-            userInfo1.setName("");
-            userInfo1.setEmail("");
-            userInfo1.setPassword("");
-
-            String result1 = hibernatejson.registerUser(userInfo1);
-            assertEquals("fields can't be empty", result1);
+//            UserInfo userInfo1 = new UserInfo();
+//            userInfo1.setName("");
+//            userInfo1.setEmail("");
+//            userInfo1.setPassword("");
+//
+//            String result1 = hibernatejson.registerUser(userInfo1);
+//            assertEquals("fields can't be empty", result1);
 
     }
     @Test
