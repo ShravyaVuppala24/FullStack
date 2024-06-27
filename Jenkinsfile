@@ -16,6 +16,14 @@ pipeline {
             }
         }
 
+        stage('SonarQube analysis'){
+        steps{
+        withSonarQubeEnv('sonarqube-10.6.0.92116'){
+        bat 'mvn sonar:sonar'
+        }
+        }
+        }
+
     }
 
     post {
